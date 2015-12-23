@@ -20,7 +20,6 @@
     },
     "require": {
         "symfony/symfony": "~2.7",
-        "doctrine/orm": "~2.5",
         "pugx/shortid-doctrine": "1.*@dev"
     },
     "require-dev":{
