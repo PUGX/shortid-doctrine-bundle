@@ -16,7 +16,22 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $treeBuilder->root('pugx_shortid_doctrine');
+        $rootNode = $treeBuilder->root('pugx_shortid_doctrine');
+
+        $rootNode
+            ->children()
+                ->arrayNode('global_config')
+                    ->children()
+                        ->scalarNode('length')
+                            ->defaultValue(7)
+                        ->end()
+                        ->scalarNode('alphabet')
+                            ->defaultNull()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
 
         return $treeBuilder;
     }

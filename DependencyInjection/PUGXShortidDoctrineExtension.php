@@ -16,6 +16,13 @@ class PUGXShortidDoctrineExtension extends Extension implements PrependExtension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
+        $configuration = new Configuration();
+        $config = $this->processConfiguration($configuration, $configs);
+
+        if (!empty($config['global_config'])) {
+            $container->setParameter('pugx_shortid_doctrine.length', $config['global_config']['length']);
+            $container->setParameter('pugx_shortid_doctrine.alphabet', $config['global_config']['alphabet']);
+        }
     }
 
     public function prepend(ContainerBuilder $container)

@@ -52,3 +52,18 @@ class Book
     protected $id;
 }
 ```
+
+## Optional configuration
+
+If you want to globally configure Shortid, you can set a configuration like in this example:
+
+```yaml
+pugx_shortid_doctrine:
+    global_config:
+        length: 6
+        alphabet: "é123456789àbcdefghìjklmnòpqrstùvwxyzABCDEFGHIJKLMNOPQRSTUVWX.!@|"
+```
+
+The ``length`` option must be between 2 and 20 (default is 7), while ``alphabet`` must be 64 characters long.
+
+Be aware: if you change ``length`` in this way, you **must** specify ``length`` option in every column definition.
