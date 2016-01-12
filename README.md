@@ -2,6 +2,7 @@ ShortId Doctrine Type Bundle
 ============================
 
 [![Total Downloads](https://poser.pugx.org/pugx/shortid-doctrine-bundle/downloads.png)](https://packagist.org/packages/pugx/shortid-doctrine-bundle)
+[![Build Status](https://travis-ci.org/PUGX/shortid-doctrine-bundle.png?branch=master)](https://travis-ci.org/PUGX/shortid-doctrine-bundle)
 
 This bundle is for using [ShortId Doctrine Type](https://github.com/pugx/shortid-doctrine) with Symfony.
 

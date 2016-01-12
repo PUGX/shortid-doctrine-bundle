@@ -3,7 +3,7 @@
     "description": "Symfony bundle for ShortId Doctrine type",
     "keywords": ["symfony", "bundle", "shortid", "doctrine"],
     "homepage": "http://pugx.org/",
-    "type": "library",
+    "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
         {
@@ -19,7 +19,7 @@
         "issues": "https://github.com/pugx/shortid-doctrine-bundle/issues"
     },
     "require": {
-        "symfony/symfony": "~2.7",
+        "symfony/symfony": "~2.7|~3.0",
         "pugx/shortid-doctrine": "1.*@dev"
     },
     "require-dev":{

@@ -1,6 +1,6 @@
 <?php
 
-namespace PUGX\ShortidDoctrineBundle\Tests\DependencyInjection;
+namespace PUGX\ShortidDoctrineBundle\DependencyInjection;
 
 use PUGX\ShortidDoctrineBundle\DependencyInjection\PUGXShortidDoctrineExtension;
 
