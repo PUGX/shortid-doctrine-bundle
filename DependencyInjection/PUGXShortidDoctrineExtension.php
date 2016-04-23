@@ -25,6 +25,9 @@ class PUGXShortidDoctrineExtension extends Extension implements PrependExtension
         }
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function prepend(ContainerBuilder $container)
     {
         $config = array(
