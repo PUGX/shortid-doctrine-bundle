@@ -47,7 +47,7 @@ class Book
      * @ORM\Column(type="shortid")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="CUSTOM")
-     * @ORM\CustomIdGenerator(class="PUGX\ShortidDoctrineBundle\Generator\ShortidGenerator")
+     * @ORM\CustomIdGenerator(class="PUGX\Shortid\Doctrine\Generator\ShortidGenerator")
      */
     protected $id;
 }
