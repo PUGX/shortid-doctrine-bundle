@@ -2,9 +2,10 @@
 
 namespace PUGX\ShortidDoctrineBundle\Tests\DependencyInjection;
 
+use PHPUnit_Framework_TestCase as TestCase;
 use PUGX\ShortidDoctrineBundle\DependencyInjection\PUGXShortidDoctrineExtension;
 
-class PUGXShortidDoctrineExtensionTest extends \PHPUnit_Framework_TestCase
+class PUGXShortidDoctrineExtensionTest extends TestCase
 {
     public function testLoadFailure()
     {
@@ -14,7 +15,7 @@ class PUGXShortidDoctrineExtensionTest extends \PHPUnit_Framework_TestCase
             ->getMockBuilder('PUGX\\ShortidDoctrineBundle\\DependencyInjection\\PUGXShortidDoctrineExtension')
             ->getMock();
 
-        $extension->load(array(array()), $container);
+        $extension->load([[]], $container);
     }
 
     public function testLoadSetParameters()
@@ -29,11 +30,11 @@ class PUGXShortidDoctrineExtensionTest extends \PHPUnit_Framework_TestCase
         $container->expects($this->any())->method('getParameterBag')->will($this->returnValue($parameterBag));
 
         $extension = new PUGXShortidDoctrineExtension();
-        $configs = array(
-            array('global_config' => array(
+        $configs = [
+            ['global_config' => [
                 'length' => 7,
-            )),
-        );
+            ]],
+        ];
         $extension->load($configs, $container);
     }
 

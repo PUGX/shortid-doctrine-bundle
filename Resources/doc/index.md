@@ -16,10 +16,10 @@ Enable bundle in the kernel:
 // app/AppKernel.php
 public function registerBundles()
 {
-    $bundles = array(
+    $bundles = [
         // ...
         new PUGX\ShortidDoctrineBundle\PUGXShortidDoctrineBundle(),
-    );
+    ];
 }
 ```
 

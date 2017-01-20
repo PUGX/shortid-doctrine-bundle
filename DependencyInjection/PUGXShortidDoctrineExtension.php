@@ -30,9 +30,9 @@ class PUGXShortidDoctrineExtension extends Extension implements PrependExtension
      */
     public function prepend(ContainerBuilder $container)
     {
-        $config = array(
-            'dbal' => array('types' => array('shortid' => 'PUGX\Shortid\Doctrine\ShortidType')),
-        );
+        $config = [
+            'dbal' => ['types' => ['shortid' => 'PUGX\Shortid\Doctrine\ShortidType']],
+        ];
         $container->prependExtensionConfig('doctrine', $config);
     }
 }
