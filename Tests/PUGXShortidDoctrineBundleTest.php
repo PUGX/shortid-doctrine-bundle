@@ -2,9 +2,10 @@
 
 namespace PUGX\ShortidDoctrineBundle\Tests;
 
+use PHPUnit\Framework\TestCase;
 use PUGX\ShortidDoctrineBundle\PUGXShortidDoctrineBundle;
 
-class PUGXShortidDoctrineBundleTest extends \PHPUnit_Framework_TestCase
+class PUGXShortidDoctrineBundleTest extends TestCase
 {
     public function testBoot()
     {

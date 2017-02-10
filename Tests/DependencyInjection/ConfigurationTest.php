@@ -2,9 +2,10 @@
 
 namespace PUGX\ShortidDoctrineBundle\Tests\DependencyInjection;
 
+use PHPUnit\Framework\TestCase;
 use PUGX\ShortidDoctrineBundle\DependencyInjection\Configuration;
 
-class ConfigurationTest extends \PHPUnit_Framework_TestCase
+class ConfigurationTest extends TestCase
 {
     public function testThatCanGetConfigTreeBuilder()
     {

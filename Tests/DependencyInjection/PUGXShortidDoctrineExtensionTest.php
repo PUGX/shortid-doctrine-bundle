@@ -2,7 +2,7 @@
 
 namespace PUGX\ShortidDoctrineBundle\Tests\DependencyInjection;
 
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use PUGX\ShortidDoctrineBundle\DependencyInjection\PUGXShortidDoctrineExtension;
 
 class PUGXShortidDoctrineExtensionTest extends TestCase
@@ -12,10 +12,10 @@ class PUGXShortidDoctrineExtensionTest extends TestCase
         $container = $this->getMockBuilder('Symfony\\Component\\DependencyInjection\\ContainerBuilder')
             ->disableOriginalConstructor()->getMock();
         $extension = $this
-            ->getMockBuilder('PUGX\\ShortidDoctrineBundle\\DependencyInjection\\PUGXShortidDoctrineExtension')
-            ->getMock();
+            ->createMock('PUGX\\ShortidDoctrineBundle\\DependencyInjection\\PUGXShortidDoctrineExtension');
 
         $extension->load([[]], $container);
+        $this->assertFalse(false);
     }
 
     public function testLoadSetParameters()
@@ -36,6 +36,7 @@ class PUGXShortidDoctrineExtensionTest extends TestCase
             ]],
         ];
         $extension->load($configs, $container);
+        $this->assertTrue(true);
     }
 
     public function testPrepend()
@@ -46,5 +47,6 @@ class PUGXShortidDoctrineExtensionTest extends TestCase
 
         $extension = new PUGXShortidDoctrineExtension();
         $extension->prepend($container);
+        $this->assertTrue(true);
     }
 }
