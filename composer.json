@@ -26,7 +26,10 @@
         "phpunit/phpunit": "^6.0"
     },
     "autoload": {
-        "psr-4": { "PUGX\\ShortidDoctrineBundle\\": "" }
+        "psr-4": { "PUGX\\ShortidDoctrineBundle\\": "src" }
+    },
+    "autoload-dev": {
+        "psr-4": { "PUGX\\ShortidDoctrineBundle\\Tests\\": "tests" }
     },
     "extra": {
         "branch-alias": {

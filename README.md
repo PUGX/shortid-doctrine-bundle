@@ -12,7 +12,7 @@ This bundle is for using [ShortId Doctrine Type](https://github.com/pugx/shortid
 Documentation
 -------------
 
-[Read the documentation](Resources/doc/index.md)
+[Read the documentation](docs/index.md)
 
 License
 -------
