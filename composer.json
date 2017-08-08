@@ -19,8 +19,8 @@
         "issues": "https://github.com/pugx/shortid-doctrine-bundle/issues"
     },
     "require": {
-        "pugx/shortid-doctrine": "^0.2",
-        "symfony/symfony": "^2.7|^3.1"
+        "pugx/shortid-doctrine": "^0.3",
+        "symfony/symfony": "^2.7|^3.3"
     },
     "require-dev":{
         "phpunit/phpunit": "^6.0"
