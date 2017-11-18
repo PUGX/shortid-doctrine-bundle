@@ -9,7 +9,7 @@ Run from terminal:
 $ composer require pugx/shortid-doctrine-bundle
 ```
 
-Enable bundle in the kernel:
+If you don't use Flex, you need to manually enable bundle in your kernel:
 
 ```php
 <?php
@@ -25,7 +25,7 @@ public function registerBundles()
 
 ## Usage
 
-You can use the ``shortid`` type in your entity.
+You can use the `shortid` type in your entity.
 Example:
 
 ```php
@@ -42,8 +42,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Book
 {
     /**
-     * @var string
-     *
      * @ORM\Column(type="shortid")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="CUSTOM")
@@ -55,7 +53,7 @@ class Book
 
 ## Optional configuration
 
-If you want to globally configure Shortid, you can set a configuration like in this example:
+If you want to globally configure ShortId, you can set a configuration like in this example:
 
 ```yaml
 pugx_shortid_doctrine:
@@ -64,6 +62,6 @@ pugx_shortid_doctrine:
         alphabet: "é123456789àbcdefghìjklmnòpqrstùvwxyzABCDEFGHIJKLMNOPQRSTUVWX.!@|"
 ```
 
-The ``length`` option must be between 2 and 20 (default is 7), while ``alphabet`` must be 64 characters long.
+The `length` option must be between 2 and 20 (default is 7), while `alphabet` must be 64 characters long.
 
-Be aware: if you change ``length`` in this way, you **must** specify ``length`` option in every column definition.
+Be aware: if you change `length` in this way, you **must** specify `length` option in every column definition.
