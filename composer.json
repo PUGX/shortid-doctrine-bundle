@@ -19,10 +19,10 @@
         "issues": "https://github.com/pugx/shortid-doctrine-bundle/issues"
     },
     "require": {
-        "pugx/shortid-doctrine": "^0.3",
-        "symfony/config": "^2.8|^3.4|^4.0",
-        "symfony/dependency-injection": "^2.8|^3.4|^4.0",
-        "symfony/http-kernel": "^2.8|^3.4|^4.0"
+        "pugx/shortid-doctrine": "^0.4",
+        "symfony/config": "^2.8|^3.4|^4.1",
+        "symfony/dependency-injection": "^2.8|^3.4|^4.1",
+        "symfony/http-kernel": "^2.8|^3.4|^4.1"
     },
     "require-dev":{
         "phpunit/phpunit": "^6.4|^7.0"
