@@ -7,7 +7,7 @@ use PUGX\ShortidDoctrineBundle\DependencyInjection\PUGXShortidDoctrineExtension;
 
 class PUGXShortidDoctrineExtensionTest extends TestCase
 {
-    public function testLoadFailure()
+    public function testLoadFailure(): void
     {
         $container = $this->getMockBuilder('Symfony\\Component\\DependencyInjection\\ContainerBuilder')
             ->disableOriginalConstructor()->getMock();
@@ -18,7 +18,7 @@ class PUGXShortidDoctrineExtensionTest extends TestCase
         $this->assertFalse(false);
     }
 
-    public function testLoadSetParameters()
+    public function testLoadSetParameters(): void
     {
         $container = $this->getMockBuilder('Symfony\\Component\\DependencyInjection\\ContainerBuilder')
             ->disableOriginalConstructor()->getMock();
@@ -39,7 +39,7 @@ class PUGXShortidDoctrineExtensionTest extends TestCase
         $this->assertTrue(true);
     }
 
-    public function testPrepend()
+    public function testPrepend(): void
     {
         $container = $this->getMockBuilder('Symfony\\Component\\DependencyInjection\\ContainerBuilder')
             ->disableOriginalConstructor()->getMock();

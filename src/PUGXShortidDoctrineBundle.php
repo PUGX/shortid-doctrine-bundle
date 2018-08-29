@@ -8,10 +8,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class PUGXShortidDoctrineBundle extends Bundle
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function boot()
+    public function boot(): void
     {
         if ($this->container->hasParameter('pugx_shortid_doctrine.length')) {
             $factory = new Factory();

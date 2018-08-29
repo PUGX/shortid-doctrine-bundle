@@ -7,7 +7,7 @@ use PUGX\ShortidDoctrineBundle\DependencyInjection\Configuration;
 
 class ConfigurationTest extends TestCase
 {
-    public function testThatCanGetConfigTreeBuilder()
+    public function testThatCanGetConfigTreeBuilder(): void
     {
         $configuration = new Configuration();
         $this->assertInstanceOf('Symfony\Component\Config\Definition\Builder\TreeBuilder', $configuration->getConfigTreeBuilder());

@@ -7,7 +7,7 @@ use PUGX\ShortidDoctrineBundle\PUGXShortidDoctrineBundle;
 
 class PUGXShortidDoctrineBundleTest extends TestCase
 {
-    public function testBoot()
+    public function testBoot(): void
     {
         $alphabet = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
         $container = $this->getMockBuilder('Symfony\\Component\\DependencyInjection\\ContainerBuilder')
