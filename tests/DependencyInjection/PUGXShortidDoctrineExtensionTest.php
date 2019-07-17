@@ -4,15 +4,15 @@ namespace PUGX\ShortidDoctrineBundle\Tests\DependencyInjection;
 
 use PHPUnit\Framework\TestCase;
 use PUGX\ShortidDoctrineBundle\DependencyInjection\PUGXShortidDoctrineExtension;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 
-class PUGXShortidDoctrineExtensionTest extends TestCase
+final class PUGXShortidDoctrineExtensionTest extends TestCase
 {
     public function testLoadFailure(): void
     {
-        $container = $this->getMockBuilder('Symfony\\Component\\DependencyInjection\\ContainerBuilder')
-            ->disableOriginalConstructor()->getMock();
-        $extension = $this
-            ->createMock('PUGX\\ShortidDoctrineBundle\\DependencyInjection\\PUGXShortidDoctrineExtension');
+        $container = $this->createMock(ContainerBuilder::class);
+        $extension = $this->createMock(PUGXShortidDoctrineExtension::class);
 
         $extension->load([[]], $container);
         $this->assertFalse(false);
@@ -20,14 +20,11 @@ class PUGXShortidDoctrineExtensionTest extends TestCase
 
     public function testLoadSetParameters(): void
     {
-        $container = $this->getMockBuilder('Symfony\\Component\\DependencyInjection\\ContainerBuilder')
-            ->disableOriginalConstructor()->getMock();
-        $parameterBag = $this->getMockBuilder('Symfony\Component\DependencyInjection\ParameterBag\\ParameterBag')
-            ->disableOriginalConstructor()->getMock();
+        $container = $this->createMock(ContainerBuilder::class);
+        $parameterBag = $this->createMock(ParameterBag::class);
 
         $parameterBag->expects($this->any())->method('add');
-
-        $container->expects($this->any())->method('getParameterBag')->will($this->returnValue($parameterBag));
+        $container->expects($this->any())->method('getParameterBag')->willReturn($parameterBag);
 
         $extension = new PUGXShortidDoctrineExtension();
         $configs = [
@@ -41,8 +38,8 @@ class PUGXShortidDoctrineExtensionTest extends TestCase
 
     public function testPrepend(): void
     {
-        $container = $this->getMockBuilder('Symfony\\Component\\DependencyInjection\\ContainerBuilder')
-            ->disableOriginalConstructor()->getMock();
+        $container = $this->createMock(ContainerBuilder::class);
+
         $container->expects($this->once())->method('prependExtensionConfig');
 
         $extension = new PUGXShortidDoctrineExtension();

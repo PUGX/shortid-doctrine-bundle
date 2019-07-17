@@ -4,17 +4,17 @@ namespace PUGX\ShortidDoctrineBundle\Tests;
 
 use PHPUnit\Framework\TestCase;
 use PUGX\ShortidDoctrineBundle\PUGXShortidDoctrineBundle;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class PUGXShortidDoctrineBundleTest extends TestCase
+final class PUGXShortidDoctrineBundleTest extends TestCase
 {
     public function testBoot(): void
     {
         $alphabet = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
-        $container = $this->getMockBuilder('Symfony\\Component\\DependencyInjection\\ContainerBuilder')
-            ->disableOriginalConstructor()->getMock();
-        $container->expects($this->once())->method('hasParameter')->will($this->returnValue(true));
-        $container->expects($this->at(1))->method('getParameter')->will($this->returnValue(7));
-        $container->expects($this->at(2))->method('getParameter')->will($this->returnValue($alphabet));
+        $container = $this->createMock(ContainerBuilder::class);
+        $container->expects($this->once())->method('hasParameter')->willReturn(true);
+        $container->expects($this->at(1))->method('getParameter')->willReturn(7);
+        $container->expects($this->at(2))->method('getParameter')->willReturn($alphabet);
 
         $bundle = new PUGXShortidDoctrineBundle();
         $bundle->setContainer($container);
