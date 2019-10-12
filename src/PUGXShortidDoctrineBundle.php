@@ -6,7 +6,7 @@ use PUGX\Shortid\Factory;
 use PUGX\Shortid\Shortid;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class PUGXShortidDoctrineBundle extends Bundle
+final class PUGXShortidDoctrineBundle extends Bundle
 {
     public function boot(): void
     {

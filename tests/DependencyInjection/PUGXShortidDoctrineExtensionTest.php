@@ -11,15 +11,17 @@ final class PUGXShortidDoctrineExtensionTest extends TestCase
 {
     public function testLoadFailure(): void
     {
+        /** @var ContainerBuilder&\PHPUnit\Framework\MockObject\MockObject $container */
         $container = $this->createMock(ContainerBuilder::class);
-        $extension = $this->createMock(PUGXShortidDoctrineExtension::class);
 
+        $extension = new PUGXShortidDoctrineExtension();
         $extension->load([[]], $container);
         $this->assertFalse(false);
     }
 
     public function testLoadSetParameters(): void
     {
+        /** @var ContainerBuilder&\PHPUnit\Framework\MockObject\MockObject $container */
         $container = $this->createMock(ContainerBuilder::class);
         $parameterBag = $this->createMock(ParameterBag::class);
 
@@ -38,6 +40,7 @@ final class PUGXShortidDoctrineExtensionTest extends TestCase
 
     public function testPrepend(): void
     {
+        /** @var ContainerBuilder&\PHPUnit\Framework\MockObject\MockObject $container */
         $container = $this->createMock(ContainerBuilder::class);
 
         $container->expects($this->once())->method('prependExtensionConfig');
