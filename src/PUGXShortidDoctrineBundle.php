@@ -1,6 +1,6 @@
 <?php
 
-namespace PUGX\ShortidDoctrineBundle;
+namespace PUGX\Shortid\Doctrine\Bundle;
 
 use PUGX\Shortid\Factory;
 use PUGX\Shortid\Shortid;

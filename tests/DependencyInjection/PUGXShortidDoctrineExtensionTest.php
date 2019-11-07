@@ -1,9 +1,9 @@
 <?php
 
-namespace PUGX\ShortidDoctrineBundle\Tests\DependencyInjection;
+namespace PUGX\Shortid\Doctrine\Bundle\Tests\DependencyInjection;
 
 use PHPUnit\Framework\TestCase;
-use PUGX\ShortidDoctrineBundle\DependencyInjection\PUGXShortidDoctrineExtension;
+use PUGX\Shortid\Doctrine\Bundle\DependencyInjection\PUGXShortidDoctrineExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 

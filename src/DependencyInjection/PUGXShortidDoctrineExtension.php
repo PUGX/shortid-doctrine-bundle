@@ -1,6 +1,6 @@
 <?php
 
-namespace PUGX\ShortidDoctrineBundle\DependencyInjection;
+namespace PUGX\Shortid\Doctrine\Bundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;

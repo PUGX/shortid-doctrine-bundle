@@ -27,7 +27,7 @@
         "symfony/http-kernel": "^3.4 || ^4.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.5 || ^8.2"
+        "phpunit/phpunit": "^7.5 || ^8.4"
     },
     "config": {
         "bin-dir": "bin",
@@ -40,12 +40,12 @@
     },
     "autoload": {
         "psr-4": {
-            "PUGX\\ShortidDoctrineBundle\\": "src"
+            "PUGX\\Shortid\\Doctrine\\Bundle\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "PUGX\\ShortidDoctrineBundle\\Tests\\": "tests"
+            "PUGX\\Shortid\\Doctrine\\Bundle\\Tests\\": "tests"
         }
     },
     "support": {

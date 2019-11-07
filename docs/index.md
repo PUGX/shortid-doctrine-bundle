@@ -18,7 +18,7 @@ public function registerBundles()
 {
     $bundles = [
         // ...
-        new PUGX\ShortidDoctrineBundle\PUGXShortidDoctrineBundle(),
+        new PUGX\Shortid\Doctrine\Bundle\PUGXShortidDoctrineBundle(),
     ];
 }
 ```

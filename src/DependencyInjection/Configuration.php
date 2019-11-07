@@ -1,6 +1,6 @@
 <?php
 
-namespace PUGX\ShortidDoctrineBundle\DependencyInjection;
+namespace PUGX\Shortid\Doctrine\Bundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
