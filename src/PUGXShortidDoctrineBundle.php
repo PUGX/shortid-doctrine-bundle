@@ -20,4 +20,9 @@ final class PUGXShortidDoctrineBundle extends Bundle
             Shortid::setFactory($factory);
         }
     }
+
+    public function getPath(): string
+    {
+        return \dirname(__DIR__);
+    }
 }
