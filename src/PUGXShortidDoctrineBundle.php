@@ -10,15 +10,21 @@ final class PUGXShortidDoctrineBundle extends Bundle
 {
     public function boot(): void
     {
-        if ($this->container->hasParameter('pugx_shortid_doctrine.length')) {
-            $factory = new Factory();
-            $factory->setLength($this->container->getParameter('pugx_shortid_doctrine.length'));
-            $alphabet = $this->container->getParameter('pugx_shortid_doctrine.alphabet');
-            if (!empty($alphabet)) {
-                $factory->setAlphabet($alphabet);
-            }
-            Shortid::setFactory($factory);
+        $prfx = 'pugx_shortid_doctrine.';
+        $factory = new Factory();
+        if ($this->container->hasParameter($prfx.'length')) {
+            $factory->setLength($this->container->getParameter($prfx.'length'));
         }
+        $alphabet = '';
+        if ($this->container->hasParameter($prfx.'readable') && true === $this->container->getParameter($prfx.'readable')) {
+            $factory->setReadable(true);
+        } elseif ($this->container->hasParameter($prfx.'alphabet')) {
+            $alphabet = $this->container->getParameter($prfx.'alphabet');
+        }
+        if (!empty($alphabet)) {
+            $factory->setAlphabet($alphabet);
+        }
+        Shortid::setFactory($factory);
     }
 
     public function getPath(): string

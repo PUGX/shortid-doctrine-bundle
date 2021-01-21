@@ -58,10 +58,21 @@ If you want to globally configure ShortId, you can set a configuration like in t
 ```yaml
 pugx_shortid_doctrine:
     global_config:
-        length: 6
+        length: 8
         alphabet: "é123456789àbcdefghìjklmnòpqrstùvwxyzABCDEFGHIJKLMNOPQRSTUVWX.!@|"
 ```
 
 The `length` option must be between 2 and 20 (default is 7), while `alphabet` must be 64 characters long.
 
-Be aware: if you change `length` in this way, you **must** specify `length` option in every column definition.
+>Be aware: if you change `length` in this way, you **must** specify `length` option in every column definition.
+>Moreover, you'll need to manually set column definition for ManyToOne mappings.
+>For example: `<join-column column-definition="CHAR(8) COLLATE utf8_bin NOT NULL"/>`
+
+You can also configure `readable` option instead of `alphabet`. Example:
+
+```yaml
+pugx_shortid_doctrine:
+    global_config:
+        readable: true
+```
+
