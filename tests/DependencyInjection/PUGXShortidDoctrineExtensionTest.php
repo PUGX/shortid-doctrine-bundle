@@ -25,8 +25,8 @@ final class PUGXShortidDoctrineExtensionTest extends TestCase
         $container = $this->createMock(ContainerBuilder::class);
         $parameterBag = $this->createMock(ParameterBag::class);
 
-        $parameterBag->expects($this->any())->method('add');
-        $container->expects($this->any())->method('getParameterBag')->willReturn($parameterBag);
+        $parameterBag->method('add');
+        $container->method('getParameterBag')->willReturn($parameterBag);
 
         $extension = new PUGXShortidDoctrineExtension();
         $configs = [

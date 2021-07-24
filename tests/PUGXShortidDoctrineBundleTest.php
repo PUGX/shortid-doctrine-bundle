@@ -13,10 +13,12 @@ final class PUGXShortidDoctrineBundleTest extends TestCase
         $alphabet = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
         /** @var ContainerBuilder&\PHPUnit\Framework\MockObject\MockObject $container */
         $container = $this->createMock(ContainerBuilder::class);
-        $container->expects($this->any())->method('hasParameter')->willReturn(true);
-        $container->expects($this->at(1))->method('getParameter')->willReturn(7);
-        $container->expects($this->at(2))->method('getParameter')->willReturn($alphabet);
-
+        $container->method('hasParameter')->willReturn(true);
+        $container
+            ->expects(self::exactly(3))
+            ->method('getParameter')
+            ->willReturnOnConsecutiveCalls(7, $alphabet)
+        ;
         $bundle = new PUGXShortidDoctrineBundle();
         $bundle->setContainer($container);
         $bundle->boot();
