@@ -29,26 +29,23 @@ jobs:
             matrix:
                 include:
                     - description: 'No Symfony specified'
-                      php: '8.0'
+                      php: '8.1'
                     - description: 'No Symfony specified'
                       php: '8.2'
                     - description: 'Lowest deps'
-                      php: '7.4'
+                      php: '8.0'
                       composer_option: '--prefer-lowest'
                       env:
                           SYMFONY_DEPRECATIONS_HELPER: max[self]=0
                     - description: 'Symfony 5.4'
-                      php: '7.4'
+                      php: '8.0'
                       symfony: 5.4.*
-                    - description: 'Symfony 6.1'
-                      php: '8.1'
-                      symfony: 6.1.*
-                    - description: 'Symfony 6.2'
-                      php: '8.1'
-                      symfony: 6.2.*
-                    - description: 'Dev deps'
+                    - description: 'Symfony 6.4'
                       php: '8.2'
-                      symfony: 6.3.*@dev
+                      symfony: 6.4.*
+                    - description: 'Latest'
+                      php: '8.3'
+                      symfony: 7.0.*
         name: PHP ${{ matrix.php }} tests (${{ matrix.description }})
         steps:
             - name: Checkout
