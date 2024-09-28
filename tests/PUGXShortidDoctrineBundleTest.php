@@ -15,9 +15,9 @@ final class PUGXShortidDoctrineBundleTest extends TestCase
         $container = $this->createMock(ContainerBuilder::class);
         $container->method('hasParameter')->willReturn(true);
         $container
-            ->expects(self::exactly(3))
+            ->expects($this->exactly(3))
             ->method('getParameter')
-            ->willReturnOnConsecutiveCalls(7, $alphabet)
+            ->willReturnOnConsecutiveCalls(7, false, $alphabet)
         ;
         $bundle = new PUGXShortidDoctrineBundle();
         $bundle->setContainer($container);
