@@ -1,5 +1,4 @@
-ShortId Doctrine Type Bundle
-============================
+# ShortId Doctrine Type Bundle
 
 [![Total Downloads](https://poser.pugx.org/pugx/shortid-doctrine-bundle/downloads.png)](https://packagist.org/packages/pugx/shortid-doctrine-bundle)
 [![Build Status](https://github.com/PUGX/shortid-doctrine-bundle/workflows/Build/badge.svg)](https://github.com/PUGX/shortid-doctrine-bundle/actions)
@@ -9,17 +8,14 @@ ShortId Doctrine Type Bundle
 
 This bundle is for using [ShortId Doctrine Type](https://github.com/pugx/shortid-doctrine) with Symfony.
 
-Documentation
--------------
+## Documentation
 
 [Read the documentation](docs/index.md)
 
-License
--------
+## License
 
 This bundle is released under the MIT license. See the [complete license text](Resources/meta/LICENSE).
 
-About
------
+## About
 
 PUGXShortidDoctrineBundle is a [PUGX](https://github.com/PUGX) initiative.
