@@ -9,19 +9,21 @@ jobs:
         runs-on: ubuntu-24.04
         steps:
             - name: Checkout
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
             - name: Validate composer.json
               run: composer validate --strict --no-check-lock
     cs-fixer:
-        runs-on: ubuntu-22.04
+        runs-on: ubuntu-24.04
         name: PHP-CS-Fixer
         steps:
             - name: Checkout
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
             - name: Fix CS
               uses: docker://oskarstark/php-cs-fixer-ga
+              with:
+                args: --diff --dry-run
     tests:
         runs-on: ubuntu-24.04
         strategy:
@@ -41,22 +43,22 @@ jobs:
                       composer_option: '--prefer-lowest'
                       env:
                           SYMFONY_DEPRECATIONS_HELPER: max[self]=0
-                    - description: 'Symfony 5.4'
-                      php: '8.1'
-                      symfony: 5.4.*
                     - description: 'Symfony 6.4'
-                      php: '8.3'
+                      php: '8.1'
                       symfony: 6.4.*
+                    - description: 'Symfony 7.4'
+                      php: '8.3'
+                      symfony: 7.4.*@dev
                     - description: 'Latest'
                       php: '8.4'
-                      symfony: 7.1.*
+                      symfony: 8.0.*@dev
         name: PHP ${{ matrix.php }} tests (${{ matrix.description }})
         steps:
             - name: Checkout
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
             - name: Cache
-              uses: actions/cache@v3
-              with: 
+              uses: actions/cache@v4
+              with:
                   path: ~/.composer/cache/files
                   key: composer-${{ matrix.php }}-${{ matrix.symfony }}-${{ matrix.composer_option }} 
             - name: Setup PHP
@@ -64,7 +66,7 @@ jobs:
               with:
                   php-version: ${{ matrix.php }}
             - name: install dev deps
-              if: contains(matrix.symfony, '-dev')
+              if: contains(matrix.symfony, '@dev')
               run: |
                   composer config minimum-stability dev
                   composer config prefer-stable true
