@@ -4,8 +4,8 @@ namespace PUGX\Shortid\Doctrine\Bundle\DependencyInjection;
 
 use PUGX\Shortid\Doctrine\ShortidType;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 final class PUGXShortidDoctrineExtension extends Extension implements PrependExtensionInterface
 {
