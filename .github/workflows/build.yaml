@@ -1,15 +1,17 @@
 name: Continuous Integration
 
 on:
+    push:
+        branches:
+            - master
     pull_request: ~
-    push: ~
 
 jobs:
     check:
         runs-on: ubuntu-24.04
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
             - name: Validate composer.json
@@ -19,7 +21,7 @@ jobs:
         name: PHP-CS-Fixer
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7
             - name: Fix CS
               uses: docker://oskarstark/php-cs-fixer-ga
               with:
@@ -30,52 +32,47 @@ jobs:
             fail-fast: false
             matrix:
                 include:
-                    - description: 'No Symfony specified'
-                      php: '8.1'
-                    - description: 'No Symfony specified'
+                    - description: 'PHP 8.2 - No Symfony specified'
                       php: '8.2'
-                    - description: 'No Symfony specified'
+                    - description: 'PHP 8.3 - No Symfony specified'
                       php: '8.3'
-                    - description: 'No Symfony specified'
+                    - description: 'PHP 8.4 - No Symfony specified'
                       php: '8.4'
+                    - description: 'PHP 8.5 - No Symfony specified'
+                      php: '8.5'
                     - description: 'Lowest deps'
-                      php: '8.1'
-                      composer_option: '--prefer-lowest'
+                      php: '8.2'
+                      dependencies: lowest
                       env:
                           SYMFONY_DEPRECATIONS_HELPER: max[self]=0
                     - description: 'Symfony 6.4'
-                      php: '8.1'
+                      php: '8.3'
                       symfony: 6.4.*
                     - description: 'Symfony 7.4'
-                      php: '8.3'
-                      symfony: 7.4.*@dev
-                    - description: 'Latest'
                       php: '8.4'
-                      symfony: 8.0.*@dev
+                      symfony: 7.4
+                    - description: 'Latest'
+                      php: '8.5'
+                      symfony: 8.1.*
         name: PHP ${{ matrix.php }} tests (${{ matrix.description }})
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
-            - name: Cache
-              uses: actions/cache@v4
-              with:
-                  path: ~/.composer/cache/files
-                  key: composer-${{ matrix.php }}-${{ matrix.symfony }}-${{ matrix.composer_option }} 
+              uses: actions/checkout@v7
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
               with:
                   php-version: ${{ matrix.php }}
-            - name: install dev deps
+                  tools: flex
+            - name: Allow dev dependencies
+              run: composer config minimum-stability dev && composer config prefer-stable true
               if: contains(matrix.symfony, '@dev')
-              run: |
-                  composer config minimum-stability dev
-                  composer config prefer-stable true
-            - name: require specific Symfony version
-              if: matrix.symfony
-              run: |
-                  sed -ri 's/"symfony\/(.+)": "(.+)"/"symfony\/\1": "'${{ matrix.symfony }}'"/' composer.json;
-            - name: update vendors
-              run: composer update --no-interaction --no-progress --ansi ${{ matrix.composer_option }}
-            - name: run tests
-              run: bin/phpunit
+            - name: Install dependencies
+              uses: ramsey/composer-install@v4
+              with:
+                  dependency-versions: ${{ matrix.dependencies }}
+              env:
+                  COMPOSER_NO_SECURITY_BLOCKING: 1
+                  SYMFONY_REQUIRE: ${{ matrix.symfony }}
+            - name: Run tests
+              run: vendor/phpunit/phpunit/phpunit --colors=always
 
